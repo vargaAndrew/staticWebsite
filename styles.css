@@ -118,6 +118,7 @@
         padding: 0;
     }
 
+    /*This is the mobile menu bars which appear when the windows size is mobile device sized (belowe our minimum settings)*/
     .navbar__menu {
         display: grid;
         grid-template-columns: auto;
@@ -129,6 +130,7 @@
         transition: all 0.5s ease;
         height: 50vh; /*viewport height*/
         z-index: -1; /*that way i should be able to click on the icon to trigger this*/
+        background: #131313;
     }
 
     /*JavaScript to trigger this*/
@@ -142,5 +144,69 @@
         font-size: 1.6rem;
     }
 
+    #navbar__logo {
+        padding-left: 25px;
+    }
+
+    /*check why need white space befor .bar*/
+    .navbar__toggle .bar {
+        width:25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #fff;
+    }
+
+    .navbar__item {
+        width: 100%;
+    }
+
+    .navbar__links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    /*# means id*/
+    #mobile-menu {
+        position: absolute;
+        top: 25%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+
+    .navbar__btn {
+        padding-bottom: 2rem;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 80px;
+        margin: 0;
+    }
+
+    .navbar__toggle .bar {
+        display: block;
+        cursor: pointer;
+    }
+
+    /*nth-child(2) means its targets the second child*/
+    #mobile-menu.is-active .bar:nth-child(2) {
+        opacity: 0; /*its mean we dont want to see it at all*/
+    }
+
+    /*we want to target the top bar so its 1*/
+    #mobile-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    /*we want to target the third bar now*/
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
     
 }
