@@ -208,5 +208,54 @@
     #mobile-menu.is-active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-    
+
 }
+
+
+/*Hero Section CSS*/
+.main {
+    background-color: #141414;
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*it means we have two column and they will take the same space*/
+    align-items: center;
+    justify-self: center; /*check it*/
+    margin: 0 auto;
+    height: 90vh;
+    background-color: #141414;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px; /*top and bottom 0, left and right 50px*/
+}
+
+.main__content h1 {
+    font-size: 4rem;
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-color: 100%;
+    -webkit-background-clip: text; /*the background color will dissapear*/
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;/*It will make the text transparent and show the background color*/
+    -moz-text-fill-color: transparent;
+}
+
+.main__content h2 {
+    font-size: 4rem;
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #b721ff 0%, #21d4fd 100%);
+    background-color: 100%;
+    -webkit-background-clip: text; /*the background color will dissapear*/
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;/*It will make the text transparent and show the background color*/
+    -moz-text-fill-color: transparent;
+}
+
+.main__content p {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
