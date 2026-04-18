@@ -324,7 +324,7 @@
         width: 100%;
         margin: 0 auto;
         /*height: 90vh;*/
-        height: auto;
+        height: auto;/**/
     }
 
     .main__content {
@@ -368,4 +368,148 @@
         margin: 2.5rem 0; /*2.5rem by 0*/
     }
 }
+
+/*Service Section CSS*/
+.services {
+    background: #141414;
+    display: flex;
+    flex-direction: column;/*check it*/
+    align-items: center;
+    min-height: 100vh; /*view port height*/
+    /*The issue is on the .services section which has height: 100vh — a fixed height equal to the viewport. 
+    When the screen is wide enough to display the cards side by side, the total content height (heading + large 552px cards + margins) can exceed that fixed height, causing the content to overflow outside the dark #141414 background. 
+    The white body background then shows through at the bottom.
+    Solution:
+    min-height: 100vh means the section is at least full viewport height, 
+    but grows taller if the content needs more space — so the dark background always covers the content fully.
+    */
+}
+
+.services h1 {
+    background-color: #ff8177;
+    background-image: linear-gradient(
+        to right, 
+        #ff8177 0%, 
+        #ff867a 0%, 
+        #ff8c7f 21%,
+        #f99185 52%, 
+        #cf556c 78%, 
+        #b12a5b 100%
+    ); /*It provides the gradient effect (color transition)*/
+    background-size: 100%; /*check it*/
+    margin-bottom: 5rem;
+    font-size: 2.5rem;
+    -webkit-background-clip: text; /*the background color will dissapear*/
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;/*It will make the text transparent and show the background color*/
+    -moz-text-fill-color: transparent;
+}
+
+.services__container {
+    display: flex; /*check it. Itt will provide a flexible layout so when you increase the screen size the cards will be
+    card should be next to each other (side by side). When you decrease it they should position themselves in a column*/
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*pictures from https://www.pexels.com/ It is a free stock photo and video website */
+
+.services__card {
+    margin: 1rem;
+    height: 552px;
+    width: 400px;
+    border-radius: 4px;
+
+    /*Esentially it is a linear gradient on the background to make it little darker, becase when it is to bright when I 
+    had a text that you couldn't even read. So it is doing this effect */
+    background-image: linear-gradient(
+        to bottom, rgba(0,0,0,0) 0%, rgba(17, 17, 17, 0.6) 100%
+        ),
+        url('/images/pic3.jpg'); /*the second part is the actual image*/
+    background-size: cover; /*it will cover the entire card*/ 
+    position: relative; /*I want to make sure I can position the text where I want it*/
+    color: #fff;
+    /*All child elements that don't have their own color rule will "bubble up" and use the parent's white color. 
+    It's a shorthand way to set a default text color for all content inside the card without targeting each element individually.
+    The color property in CSS is inherited by default. This means any text elements (<p>, <h2>, <span>, etc.) nested inside .services__card will automatically inherit color: #fff from their parent, unless they define their own color value*/
+}
+
+.services__card:nth-child(2) {
+     background-image: linear-gradient(
+        to bottom, rgba(0,0,0,0) 0%, rgba(17, 17, 17, 0.6) 100%
+    ),
+        url('/images/pic4.jpg'); /*the second part is the actual image*/
+}
+
+.services h2 {
+    position: absolute;
+    top: 350px;
+    left: 30px;
+}
+
+.services p {
+    position: absolute; /*check absolute positioning*/
+    top: 400px;
+    left: 30px;
+}
+
+.services__card button {
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    outline: none; /* is the border-like ring that browsers draw outside the element's border when it receives focus (e.g., when you click a button or tab to it with the keyboard).
+    removes that default browser focus ring.*/
+    /*
+    Accessibility warning: Removing the outline can be harmful for keyboard users who rely on the visible focus indicator to know which element is selected. A better practice is to only hide it for mouse users:
+    .services__card button:focus:not(:focus-visible) {
+    outline: none;
+    }
+    This removes the outline on mouse click, but keeps it for keyboard navigation.
+    */
+    border-radius: 4px;
+    background: #f77062;
+    position: absolute;
+    top: 440px;
+    left: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/*hover over effects*/
+.services__card:hover {
+    /*This is going to scale it to increase the card size when you hover over it*/
+    transform: scale(1.075);
+    transition: 0.2s ease-in; /*check it*/
+    cursor: pointer;
+}
+
+@media screen and (max-width: 960px){
+    .services {
+        height: 1600px; /*cards will have enough space to stack vertically when the screen is narrower, 
+        so they don't overflow
+        Without this, the cards would overflow outside the section's background*/
+    }
+
+    .services h1 {
+        font-size: 2rem;/*shrinks the heading slightly to fit a narrower screen*/
+        margin-top: 12rem;/*.services h1 pushes the heading down within the services section, 
+        which visually increases the gap between the bottom of .main__container (the hero section) and the services heading*/
+    }
+}
+
+@media screen and (max-width: 480) {
+    .services {
+        height: 1400px;
+    }
+
+    .services h1 {
+        font-size: 1.2rem;
+        margin-top: 8rem;
+    }
+
+    .services__card {
+        width: 300px;
+    }
+}
+
 
