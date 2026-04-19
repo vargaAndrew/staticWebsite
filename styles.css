@@ -425,7 +425,7 @@
     background-image: linear-gradient(
         to bottom, rgba(0,0,0,0) 0%, rgba(17, 17, 17, 0.6) 100%
         ),
-        url('images/pic3_compressed_10.jpg'); /*the second part is the actual image*/
+        url('images/pic3_reducedSizeAndCompressed30.jpg'); /*the second part is the actual image*/
     background-size: cover; /*it will cover the entire card*/ 
     position: relative; /*I want to make sure I can position the text where I want it*/
     color: #fff;
@@ -439,7 +439,7 @@
         to bottom, rgba(0,0,0,0) 0%, rgba(17, 17, 17, 0.6) 100%
     ),
         /*url('/images/pic4.jpg'); this is absolute path which work only locally. Use relative path instead*/
-    url('images/pic4_compressed_10.jpg');   
+    url('images/pic4_reducedSizeAndCompressedTo30.jpg');   
 }
 
 .services h2 {
